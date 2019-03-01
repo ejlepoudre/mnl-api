@@ -1,7 +1,13 @@
 from django.forms import ModelForm, ModelMultipleChoiceField
 from django.contrib.admin.widgets import FilteredSelectMultiple
+<<<<<<< HEAD
 
 from .models import Group, User
+=======
+from django.contrib.auth.models import Group
+
+from .models import User
+>>>>>>> upstream/master
 
 
 class GroupAdminForm(ModelForm):

@@ -1,15 +1,31 @@
+<<<<<<< HEAD
 import logging
+=======
+>>>>>>> upstream/master
 import os
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
+<<<<<<< HEAD
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 HOST = os.getenv('HOST')
 DEBUG = os.getenv('DEBUG')
 TESTING = 'test' in sys.argv
 
+=======
+DEBUG = os.getenv('DEBUG') in [True, 'True', 'true']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+
+TESTING = 'test' in sys.argv
+
+ADMINS = [
+    ('Ryan Allen', 'allenryan14@gmail.com'),
+    ('Jeremy Drager', 'jdrager22@gmail.com'),
+]
+
+>>>>>>> upstream/master
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,11 +34,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+<<<<<<< HEAD
     'phonenumber_field',
     'rest_framework',
 
     # 'dj',
     # 'games',
+=======
+    'rest_framework',
+
+    'games',
+>>>>>>> upstream/master
     'personnel',
     'seasons',
     'venues',
@@ -79,8 +101,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
+<<<<<<< HEAD
 LOGIN_REDIRECT_URL = '/api'
 LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
+=======
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
+# LOGIN_URL = '/login'
+>>>>>>> upstream/master
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -89,6 +117,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'main/static/'),
@@ -112,3 +141,19 @@ if DEBUG:
     }
 if TESTING:
     logging.disable(logging.CRITICAL)
+=======
+STATIC_ROOT = os.getenv('STATIC_ROOT') or os.path.join(BASE_DIR, '.static')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'main/static/'),)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' if DEBUG else \
+                'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') in [True, 'True', 'true']
+DEFAULT_FROM_EMAIL = 'noreply@{host}'.format(host=EMAIL_HOST)
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+LOG_DIR = os.getenv('LOG_DIR') or '/var/log/django'
+>>>>>>> upstream/master

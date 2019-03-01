@@ -1,4 +1,5 @@
 from django.contrib.auth.models import (AbstractUser,
+<<<<<<< HEAD
                                         Group as DefaultGroup,
                                         UserManager as DefaultUserManager)
 from django.contrib.postgres.fields import ArrayField
@@ -20,10 +21,21 @@ class UserManager(DefaultUserManager):
     '''
     https://github.com/django/django/blob/master/django/contrib/auth/models.py#L131
     '''
+=======
+                                        UserManager as DefaultUserManager)
+from django.contrib.postgres.fields import ArrayField
+from django.db import models
+# from phonenumber_field.modelfields import PhoneNumberField
+
+
+class UserManager(DefaultUserManager):
+    # https://github.com/django/django/blob/master/django/contrib/auth/models.py#L131
+>>>>>>> upstream/master
     pass
 
 
 class User(AbstractUser):
+<<<<<<< HEAD
     '''
     https://github.com/django/django/blob/master/django/contrib/auth/models.py#L288
     '''
@@ -39,6 +51,20 @@ class Group(DefaultGroup):
     pass
 
 
+=======
+    # https://github.com/django/django/blob/master/django/contrib/auth/models.py#L288
+    # phone_number = PhoneNumberField(blank=True)
+    nicknames = ArrayField(models.CharField(max_length=30), null=True, blank=True)
+
+    objects = UserManager()
+
+
+# HANDEDNESS_CHOICES = (
+#     ('R', 'Right'),
+#     ('L', 'Left'),
+#     ('A', 'Ambidextrous'),
+# )
+>>>>>>> upstream/master
 # class Player(models.Model):
 #     '''Player attributes that carry over season to season'''
 #     user = models.OneToOneField(User, on_delete=models.PROTECT)

@@ -1,6 +1,7 @@
 __pycache__/
 .idea/
 .project/
+<<<<<<< HEAD
 .vagrant/
 fixtures/
 lib/
@@ -16,3 +17,20 @@ var/
 !dev.env
 
 .vscode
+=======
+.pydevproject/
+.static/
+.vagrant/
+.venv/
+
+.DS_Store
+.env
+*.orig
+*.pyc
+*.sqlite3
+*#*
+*~
+
+nginx/ssl/*
+!nginx/ssl/dev.conf
+>>>>>>> upstream/master

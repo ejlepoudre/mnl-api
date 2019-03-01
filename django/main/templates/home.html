@@ -1,3 +1,15 @@
 {% extends 'base.html' %}
 
+<<<<<<< HEAD
 {% block content %}{% endblock content %}
+=======
+{% block content %}
+{% if teams %}
+<ul>
+  {% for team in teams %}
+  <li>{{ team.name }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}
+>>>>>>> upstream/master

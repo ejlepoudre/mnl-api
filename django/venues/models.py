@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 from .utils import clean_whitespace, geocode
 from main.logging import logger
+=======
+import logging
+
+from django.db import models
+# from phonenumber_field.modelfields import PhoneNumberField
+
+from .utils import clean_whitespace, geocode
+
+logger = logging.getLogger('django')
+>>>>>>> upstream/master
 
 
 class Location(models.Model):
@@ -81,7 +92,11 @@ class Location(models.Model):
 class Venue(Location):
     '''Used for arenas and other meetings places e.g. bars'''
     name = models.CharField(max_length=40)
+<<<<<<< HEAD
     phone_number = PhoneNumberField(blank=True)
+=======
+    # phone_number = PhoneNumberField(blank=True)
+>>>>>>> upstream/master
 
     def __str__(self):
         return self.name
